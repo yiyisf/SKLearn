@@ -7,7 +7,10 @@ path = "E:\资源\ScikitLearn\intraQuarter"
 def Key_Stats(gather="Total Debt/Equity (mrq)"):
     statspath = path + '/_KeyStats'
     stock_list = [x[0] for x in os.walk(statspath)]
-    df = pd.DataFrame(columns=['Date', 'Unix', 'Ticker', 'DE Ratio'])
+    df = pd.DataFrame(columns=['Date', 'Unix', 'Ticker', 'DE Ratio', 'Price', 'SP500'])
+
+    sp500_df = pd.DataFrame.from_csv("YAHOO-INDEX_GSPC.csv")
+    
     # print(stock_list)
     for each_dir in stock_list[1:]:
         each_file = os.listdir(each_dir)
